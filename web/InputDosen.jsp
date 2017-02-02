@@ -29,6 +29,18 @@
                     <label for="dosen">Nama Dosen :</label>
                     <form:input path="dosen" class="form-control" placeholder="Nama Dosen"/>
                 </div>
+                <div class="form-group">
+                    <label for="nama">Jenis Kelamin :</label>                    
+                    <label class="radio-inline"> <form:radiobutton path="jenis_kelamin" value="Pria" name="optradio"/>Pria</label>
+                    <label class="radio-inline"> <form:radiobutton path="jenis_kelamin" value="Perempuan" name="optradio"/>Perempuan</label>
+                    <form:errors path="jenis_kelamin"  class="form-control" />                    
+                </div>  
+                <div class="form-group">                                            
+                    <label for="tanggal_lahir">Tanggal Lahir Dosen :</label>
+                    <form:input type="date" path="TanggalLahir" class="form-control"
+                                placeholder="Tanggal Lahir anda" />
+                    <fmt:formatDate value="${dosen.tanggalLahir}" pattern= "yyyy-MM-dd"/> 
+                </div>
                 <div class="form-group">                                            
                     <label for="alamat">Alamat Dosen :</label>
                     <form:input path="alamat" class="form-control" placeholder="Alamat Dosen"/>

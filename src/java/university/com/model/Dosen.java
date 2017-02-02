@@ -7,13 +7,18 @@ package university.com.model;
 
 import java.io.Serializable;
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.List;
 import javax.persistence.Basic;
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.EnumType;
+import javax.persistence.Enumerated;
 import javax.persistence.Id;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
+import javax.persistence.Temporal;
+import javax.persistence.TemporalType;
 
 /**
  *
@@ -22,7 +27,9 @@ import javax.persistence.Table;
 @Entity
 @Table(name = "dosen")
 public class Dosen implements Serializable {
-
+    public enum GenderType {
+        Pria,Perempuan;
+    }
     private static final long serialVersionUID = 1L;
 
     @Id
@@ -36,8 +43,32 @@ public class Dosen implements Serializable {
     @Column(name = "alamat")
     private String alamat;
     
-    @OneToMany(mappedBy = "dosen" )
+    @Column(name = "tanggal_lahir")
+    @Temporal(TemporalType.DATE)
+    private Date tanggalLahir;
+
+    @OneToMany(mappedBy = "dosen")
     private List<Nilai> daftarNilai = new ArrayList<>();
+    
+    @Enumerated(EnumType.STRING)
+    @Column(name = "jenis_kelamin")
+    private GenderType jenis_kelamin;
+
+    public GenderType getJenis_kelamin() {
+        return jenis_kelamin;
+    }
+
+    public void setJenis_kelamin(GenderType jenis_kelamin) {
+        this.jenis_kelamin = jenis_kelamin;
+    }
+
+    public Date getTanggalLahir() {
+        return tanggalLahir;
+    }
+
+    public void setTanggalLahir(Date tanggalLahir) {
+        this.tanggalLahir = tanggalLahir;
+    }
 
     public Dosen(Long nip) {
         this.nip = nip;
@@ -53,7 +84,7 @@ public class Dosen implements Serializable {
     public void setDaftarNilai(List<Nilai> daftarNilai) {
         this.daftarNilai = daftarNilai;
     }
-    
+
     public Long getNip() {
         return nip;
     }

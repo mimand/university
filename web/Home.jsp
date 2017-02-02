@@ -38,6 +38,8 @@
                     <tr>
                         <th>NPM</th>
                         <th>Nama</th>
+                        <th>Jenis Kelamin</th>
+                        <th>Tanggal Lahir</th>
                         <th>Kelas</th>
                         <th>Jurusan</th>
                         <th>Action</th>
@@ -46,6 +48,8 @@
                         <tr>
                             <td>${mahasiswa.npm}</td>
                             <td>${mahasiswa.nama}</td>
+                            <td>${mahasiswa.jenis_kelamin}</td>                            
+                            <td>${mahasiswa.tanggal_lahir}</td>
                             <td>${mahasiswa.kelas}</td>
                             <td>${mahasiswa.jurusan}</td>
                             <td> <a href="viewUpdate.do?mhs_id=${mahasiswa.npm}" class="btn btn-info">Update</a> 

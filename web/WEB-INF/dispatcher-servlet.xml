@@ -7,7 +7,7 @@
        xmlns:mvc="http://www.springframework.org/schema/mvc"
        xmlns:tx="http://www.springframework.org/schema/tx"
        xmlns:context="http://www.springframework.org/schema/context"
-        xmlns:util="http://www.springframework.org/schema/util"
+       xmlns:util="http://www.springframework.org/schema/util"
        xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-4.0.xsd
        http://www.springframework.org/schema/aop http://www.springframework.org/schema/aop/spring-aop-4.0.xsd
        http://www.springframework.org/schema/tx http://www.springframework.org/schema/tx/spring-tx-4.0.xsd
@@ -20,32 +20,31 @@
   
     
     <context:annotation-config/>
-     <context:component-scan base-package="university.com" />
+    <context:component-scan base-package="university.com" />
      
-      <bean class="org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerMapping"/>
+    <bean class="org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerMapping"/>
     <bean class="org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter"/>
     <bean class="org.springframework.web.servlet.mvc.support.ControllerBeanNameHandlerMapping"/>     
     
-        <bean id="viewResolver"
+    <bean id="viewResolver"
           class="org.springframework.web.servlet.view.InternalResourceViewResolver"
           p:prefix="/"
           p:suffix=".jsp" />
     <mvc:resources mapping="/resources/**" location="/template/" />
-
     <context:property-placeholder location="/WEB-INF/jdbc.properties"/>
-
-      <!-- DataSource -->
-       <bean id="dataSource"
+    <mvc:annotation-driven/> 
+    <!-- DataSource -->
+    <bean id="dataSource"
           class="org.apache.commons.dbcp.BasicDataSource" destroy-method="close"
           p:driverClassName="${jdbc.driverClassName}"
           p:url="${jdbc.url}" p:username="${jdbc.username}"
-             p:password="${jdbc.password}"> 
-       </bean>
+          p:password="${jdbc.password}"> 
+    </bean>
     
-     <bean id="sessionFactory"
+    <bean id="sessionFactory"
           class="org.springframework.orm.hibernate4.LocalSessionFactoryBean">
         <property name="dataSource" ref="dataSource" />
-         <property name="configLocation" value="/WEB-INF/hibernate.cfg.xml"/>       
+        <property name="configLocation" value="/WEB-INF/hibernate.cfg.xml"/>       
         <property name="hibernateProperties">
             <props>
                 <prop key="hibernate.dialect">${jdbc.dialect}</prop>
@@ -55,10 +54,10 @@
         </property>
     </bean>
     
-       <!-- Transaction -->
-     <tx:annotation-driven transaction-manager="transactionManager" />
+    <!-- Transaction -->
+    <tx:annotation-driven transaction-manager="transactionManager" />
     <bean id="transactionManager"
-        class="org.springframework.orm.hibernate4.HibernateTransactionManager">
+          class="org.springframework.orm.hibernate4.HibernateTransactionManager">
         <property name="sessionFactory" ref="sessionFactory" />
     </bean>
 </beans>

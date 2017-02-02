@@ -39,6 +39,8 @@
                     <tr>
                         <th>NIP</th>
                         <th>Dosen</th>
+                        <th>Tanggal Lahir</th>
+                        <th>Jenis kelamin</th>                                                
                         <th>Alamat</th>
                         <th>Action</th>
                     </tr>
@@ -46,6 +48,8 @@
                         <tr>
                             <td>${dosen.nip}</td>
                             <td>${dosen.dosen}</td>
+                            <td>${dosen.tanggalLahir}</td>
+                            <td>${dosen.jenis_kelamin}</td>                                                        
                             <td>${dosen.alamat}</td>
                             <td> <a href="updateDosen.do?ds_id=${dosen.nip}" class="btn btn-info">Update</a> 
                                 <a href="deleteDosen.do?ds_id=${dosen.nip}" class="btn btn-danger confirmation">Delete</a> </td>

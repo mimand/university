@@ -27,8 +27,21 @@
                     <form:input path="nama" id="nama"  class="form-control" />
                     <form:errors path="nama"  class="form-control" />
                 </div>
-                <div class="form-group">    
+                <div class="form-group">
+                    <label for="nama">Jenis Kelamin :</label>                    
+                    <label class="radio-inline"> <form:radiobutton path="jenis_kelamin" value="Pria" name="optradio"/>Pria</label>
+                    <label class="radio-inline"> <form:radiobutton path="jenis_kelamin" value="Perempuan" name="optradio"/>Perempuan</label>
+                    <form:errors path="jenis_kelamin"  class="form-control" />                    
+                </div>                        
+                <div class="form-group">                                            
+                    <label for="tanggal_lahir">Tanggal Lahir Mahasiswa :</label>
+                    <form:input type="date" path="tanggal_lahir" class="form-control"
+                                placeholder="Tanggal Lahir anda" />
+                    <fmt:formatDate value="${mahasiswa.tanggal_lahir}" pattern= "yyyy-MM-dd"/>                    
+                    <form:errors path="tanggal_lahir"  class="form-control" />
 
+                </div>
+                <div class="form-group">                
                     <label for="kelas">Kelas Mahasiswa :</label>
                     <form:input path="kelas" id="kelas" class="form-control" />
                     <form:errors path="kelas"  class="form-control" />
