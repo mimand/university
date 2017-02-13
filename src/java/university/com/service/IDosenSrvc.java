@@ -18,6 +18,6 @@ public interface IDosenSrvc {
     public void Delete(Dosen dosen);
     public List<Dosen> getAllDosens();
     public Dosen getSingleDosen(Long id);
-    public List<Dosen> getAllDosens(int start,int max);
+    public List<Dosen> getAllDosens(Integer start, Integer max);
     public List<Dosen> getSearch(String search);    
 }

@@ -50,7 +50,7 @@
                             <td>${nilai.id_nilai}</td>
                             <td>${nilai.dosen.dosen}</td>
                             <td>${nilai.mahasiswa.nama}</td>
-                            <td>${nilai.mataKuliah.mata_kuliah}</td>
+                            <td>${nilai.mataKuliah.mataKuliah}</td>
                             <td>${nilai.nilai}</td>
                             <td> <a href="updateNilai.do?n_id=${nilai.id_nilai}" class="btn btn-info">Update</a> 
                                 <a href="deleteNilai.do?n_id=${nilai.id_nilai}" class="btn btn-danger confirmation">Delete</a> </td>

@@ -59,7 +59,7 @@ public class NilaiController {
         Long id = Long.parseLong(request.getParameter("n_id"));
         Nilai n = new Nilai();
 
-        n.setId_nilai(id);
+        n.setIdNilai(id);
         iNilaiSrvc.delete(n);
 
         return "redirect:/tampilNilai.do";

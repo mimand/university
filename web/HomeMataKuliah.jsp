@@ -46,7 +46,7 @@
                     <c:forEach items="${matakuliahlist}" var="matakuliah">
                         <tr>
                             <td>${matakuliah.kode}</td>
-                            <td>${matakuliah.mata_kuliah}</td>
+                            <td>${matakuliah.mataKuliah}</td>
                             <td>${matakuliah.sks}</td>
                             <td> <a href="updateMataKuliah.do?mk_id=${matakuliah.kode}" class="btn btn-info">Update</a> 
                                 <a href="deleteMataKuliah.do?mk_id=${matakuliah.kode}" class="btn btn-danger confirmation">Delete</a> </td>

@@ -16,15 +16,15 @@
     <body>
         <div class="container">
             <h2>Input Mahasiswa Form</h2>
-            <form:form method="POST" action="/University/addMahasiswa.do" modelAttribute="mahasiswa">
+            <form:form method="POST" action="/University/addMahasiswa.do" modelAttribute="mahasiswa" enctype="multipart/form-data"  >
                 <div class="form-group">    
                     <label for="npm">NPM Mahasiswa :</label>
                     <form:input path="npm" class="form-control"  placeholder="Npm anda"/>
                 </div>
-               <div class="form-group">
+                <div class="form-group">
                     <label for="nama">Jenis Kelamin :</label>                    
-                    <label class="radio-inline"> <form:radiobutton path="jenis_kelamin" value="Pria" name="optradio"/>Pria</label>
-                    <label class="radio-inline"> <form:radiobutton path="jenis_kelamin" value="Perempuan" name="optradio"/>Perempuan</label>
+                    <label class="radio-inline"> <form:radiobutton path="jenisKelamin" value="L" name="optradio"/>Pria</label>
+                    <label class="radio-inline"> <form:radiobutton path="jenisKelamin" value="P" name="optradio"/>Perempuan</label>
                 </div>                    
                 <div class="form-group">                        
                     <label for="nama">Nama Mahasiswa :</label>
@@ -32,8 +32,8 @@
                 </div>
                 <div class="form-group">                                            
                     <label for="tanggal_lahir">Tanggal Lahir Mahasiswa :</label>                   
-                    <form:input path="tanggal_lahir" type="date"  class="form-control" placeholder="Tanggal Lahir anda"/>
-                    <fmt:formatDate value="${mahasiswa.tanggal_lahir}" pattern= "yyyy-MM-dd"/>                                        
+                    <form:input path="tanggalLahir" type="date"  class="form-control" placeholder="Tanggal Lahir anda"/>
+                    <fmt:formatDate value="${mahasiswa.tanggalLahir}" pattern= "yyyy-MM-dd"/>                                        
                 </div>                 
                 <div class="form-group">                                            
                     <label for="kelas">Kelas Mahasiswa :</label>
@@ -43,7 +43,9 @@
                 <div class="form-group">                                            
                     <label for="jurusan">Jurusan Mahasiswa :</label>
                     <form:input path="jurusan" class="form-control" placeholder="Jurusan anda"/>
-                </div>                    
+                </div>
+                <input type="file" name="file"  />
+
                 <input type="submit" value="Simpan" class="btn btn-default"  />
             </div>
         </form:form>

@@ -48,7 +48,7 @@ public class DosenSrvcImpl implements IDosenSrvc{
     }
 
     @Override
-    public List<Dosen> getAllDosens(int start, int max) {
+    public List<Dosen> getAllDosens(Integer start, Integer max) {
         return dosenDao.getAll(start, max);
     }
 

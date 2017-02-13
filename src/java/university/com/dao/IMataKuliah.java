@@ -6,13 +6,13 @@
 package university.com.dao;
 
 import java.util.List;
-import university.com.model.MataKuliah;
+import university.com.model.Matakuliah;
 
 /**
  *
  * @author iman
  */
-public interface IMataKuliah extends IBaseDaoHibernate<MataKuliah>{
-        public List<MataKuliah> getSearch(String search);
+public interface IMataKuliah extends IBaseDaoHibernate<Matakuliah>{
+        public List<Matakuliah> getSearch(String search);
 
 }

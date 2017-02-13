@@ -25,14 +25,13 @@
     <bean class="org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerMapping"/>
     <bean class="org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter"/>
     <bean class="org.springframework.web.servlet.mvc.support.ControllerBeanNameHandlerMapping"/>     
-    
+    <bean class="org.springframework.web.multipart.commons.CommonsMultipartResolver" id="multipartResolver"/> 
     <bean id="viewResolver"
           class="org.springframework.web.servlet.view.InternalResourceViewResolver"
           p:prefix="/"
           p:suffix=".jsp" />
     <mvc:resources mapping="/resources/**" location="/template/" />
     <context:property-placeholder location="/WEB-INF/jdbc.properties"/>
-    <mvc:annotation-driven/> 
     <!-- DataSource -->
     <bean id="dataSource"
           class="org.apache.commons.dbcp.BasicDataSource" destroy-method="close"

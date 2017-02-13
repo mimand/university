@@ -33,7 +33,7 @@
                     <label for="nama">Jenis Kelamin :</label>                    
                     <label class="radio-inline"> <form:radiobutton path="jenis_kelamin" value="Pria" name="optradio"/>Pria</label>
                     <label class="radio-inline"> <form:radiobutton path="jenis_kelamin" value="Perempuan" name="optradio"/>Perempuan</label>
-                    <form:errors path="jenis_kelamin"  class="form-control" />                    
+                    <form:errors path="jenisKelamin"  class="form-control" />                    
                 </div>  
                 <div class="form-group">                                            
                     <label for="tanggal_lahir">Tanggal Lahir Dosen :</label>

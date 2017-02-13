@@ -17,5 +17,6 @@ public interface IBaseDaoHibernate<T> {
     public void delete(T domain);
     public List<T> getAll();
     public T getById(Long id);
-    public List<T> getAll(int start,int max);
+    public List<T> getAll(Integer start, Integer max);
+    public Long count();
 }

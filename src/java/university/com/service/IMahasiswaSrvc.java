@@ -19,8 +19,9 @@ public interface IMahasiswaSrvc {
     public void Delete(Mahasiswa mahasiswa);
     public List<Mahasiswa> getAllMahasiswas();
     public Mahasiswa getSingleMahasiswa(Long id);
-    public List<Mahasiswa> getAllMahasiswas(int start,int max);
+    public List<Mahasiswa> getAllMahasiswas(Integer start, Integer max);
     public List<Mahasiswa> getSearch(String search);
+    public Long count();
 
 
     

@@ -10,7 +10,7 @@ import javax.transaction.Transactional;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import university.com.dao.IMataKuliah;
-import university.com.model.MataKuliah;
+import university.com.model.Matakuliah;
 
 /**
  *
@@ -24,37 +24,37 @@ public class MataKuliahSrvcImpl implements IMataKuliahSrvc {
     IMataKuliah mataKuliahDao;
 
     @Override
-    public void save(MataKuliah mataKuliah) {
+    public void save(Matakuliah mataKuliah) {
         mataKuliahDao.save(mataKuliah);
     }
 
     @Override
-    public void update(MataKuliah mataKuliah) {
+    public void update(Matakuliah mataKuliah) {
         mataKuliahDao.update(mataKuliah);
     }
 
     @Override
-    public void delete(MataKuliah mataKuliah) {
+    public void delete(Matakuliah mataKuliah) {
         mataKuliahDao.delete(mataKuliah);
     }
 
     @Override
-    public List<MataKuliah> getAllMataKuliah() {
+    public List<Matakuliah> getAllMataKuliah() {
         return mataKuliahDao.getAll();
     }
 
     @Override
-    public MataKuliah getSingleMataKuliah(Long id) {
+    public Matakuliah getSingleMataKuliah(Long id) {
         return mataKuliahDao.getById(id);
     }
 
     @Override
-    public List<MataKuliah> getAllMataKuliahs(int start, int max) {
+    public List<Matakuliah> getAllMataKuliahs(Integer start, Integer max) {
         return mataKuliahDao.getAll(start, max);
     }
 
     @Override
-    public List<MataKuliah> getSearch(String search) {
+    public List<Matakuliah> getSearch(String search) {
         return mataKuliahDao.getSearch(search);
     }
 

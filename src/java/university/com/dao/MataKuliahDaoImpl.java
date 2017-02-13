@@ -8,21 +8,21 @@ package university.com.dao;
 import java.util.List;
 import org.hibernate.Query;
 import org.springframework.stereotype.Repository;
-import university.com.model.MataKuliah;
+import university.com.model.Matakuliah;
 
 /**
  *
  * @author iman
  */
 @Repository
-public class MataKuliahDaoImpl extends BaseDaoHibernate<MataKuliah>
+public class MataKuliahDaoImpl extends BaseDaoHibernate<Matakuliah>
         implements IMataKuliah {
 
-    public List<MataKuliah> getSearch(String search) {
+    public List<Matakuliah> getSearch(String search) {
         Query query = sessionFactory.getCurrentSession().createQuery("FROM "
                 + domainClass.getName() + " m WHERE lower(m.mata_kuliah) LIKE lower(:search)")
                 .setParameter("search", "%" + search + "%");
-        List<MataKuliah> listSearch = query.list();
+        List<Matakuliah> listSearch = query.list();
         return listSearch;
     }
 }

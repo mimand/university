@@ -16,7 +16,7 @@ import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.servlet.ModelAndView;
-import university.com.model.MataKuliah;
+import university.com.model.Matakuliah;
 import university.com.service.IMataKuliahSrvc;
 
 /**
@@ -33,18 +33,18 @@ public class MataKuliahController {
     public ModelAndView tampilMataKuliah(HttpServletRequest request, HttpServletResponse response) {
         ModelAndView mav = new ModelAndView("/HomeMataKuliah");
 
-        List<MataKuliah> mataKuliahs = mataKuliahSrvc.getAllMataKuliah();
+        List<Matakuliah> mataKuliahs = mataKuliahSrvc.getAllMataKuliah();
         mav.addObject("matakuliahlist", mataKuliahs);
         return mav;
     }
 
     @RequestMapping(value = "/InputMataKuliah.do", method = RequestMethod.GET)
     public ModelAndView showInputMataKuliah() {
-        return new ModelAndView("InputMataKuliah", "matakuliah", new MataKuliah());
+        return new ModelAndView("InputMataKuliah", "matakuliah", new Matakuliah());
     }
 
     @RequestMapping(value = "/addMataKuliah.do", method = RequestMethod.POST)
-    public String submitMataKuliah(@ModelAttribute("") MataKuliah mataKuliah, BindingResult result,
+    public String submitMataKuliah(@ModelAttribute("") Matakuliah mataKuliah, BindingResult result,
             ModelMap map) {
         if (result.hasErrors()) {
             return "/inputMataKuliah.do";
@@ -56,7 +56,7 @@ public class MataKuliahController {
     @RequestMapping(value = "/deleteMataKuliah.do", method = RequestMethod.GET)
     public String deleteMataKuliah(HttpServletRequest request) {
         Long id = Long.parseLong(request.getParameter("mk_id"));
-        MataKuliah mk = new MataKuliah();
+        Matakuliah mk = new Matakuliah();
         mk.setKode(id);
         mataKuliahSrvc.delete(mk);
 
@@ -68,7 +68,7 @@ public class MataKuliahController {
 
         ModelAndView modelAndView = new ModelAndView("/UpdateMataKuliah");
         Long id = Long.parseLong(request.getParameter("mk_id"));
-        MataKuliah mk = new MataKuliah();
+        Matakuliah mk = new Matakuliah();
         try {
             System.out.print("Sucess Running");
             mk = mataKuliahSrvc.getSingleMataKuliah(id);
@@ -84,7 +84,7 @@ public class MataKuliahController {
         ModelAndView mav = new ModelAndView("/HomeMataKuliah");
         String mk = request.getParameter("mk_nama");
         
-        List<MataKuliah> list = mataKuliahSrvc.getSearch(mk);
+        List<Matakuliah> list = mataKuliahSrvc.getSearch(mk);
         mav.addObject("matakuliahlist", list);
         
         return mav;

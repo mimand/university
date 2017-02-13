@@ -19,5 +19,5 @@ public interface INilaiSrvc {
     public void delete(Nilai nilai);
     public List<Nilai> getAllNilai();
     public Nilai getSingleNilai(Long id);
-    public List<Nilai> getAllNilais(int start,int max);   
+    public List<Nilai> getAllNilais(Integer start, Integer max);   
 }

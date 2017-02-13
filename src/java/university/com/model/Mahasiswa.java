@@ -6,19 +6,21 @@
 package university.com.model;
 
 import java.io.Serializable;
-import java.util.ArrayList;
 import java.util.Date;
-import java.util.List;
 import javax.persistence.Basic;
 import javax.persistence.Column;
 import javax.persistence.Entity;
-import javax.persistence.EnumType;
-import javax.persistence.Enumerated;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
 import javax.persistence.Id;
-import javax.persistence.OneToMany;
+import javax.persistence.Lob;
+import javax.persistence.NamedQueries;
+import javax.persistence.NamedQuery;
 import javax.persistence.Table;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
+import javax.persistence.Transient;
+import javax.xml.bind.annotation.XmlRootElement;
 
 /**
  *
@@ -26,59 +28,38 @@ import javax.persistence.TemporalType;
  */
 @Entity
 @Table(name = "mahasiswa")
+@XmlRootElement
 public class Mahasiswa implements Serializable {
 
     private static final long serialVersionUID = 1L;
-
-    public enum GenderType {
-        Pria,Perempuan;
-    }
     @Id
     @Basic(optional = false)
     @Column(name = "npm")
     private Long npm;
-
     @Column(name = "nama")
     private String nama;
-
     @Column(name = "kelas")
     private String kelas;
-
     @Column(name = "jurusan")
     private String jurusan;
-
     @Column(name = "tanggal_lahir")
     @Temporal(TemporalType.DATE)
-    private Date tanggal_lahir;
+    private Date tanggalLahir;
 
-    @Enumerated(EnumType.STRING)
     @Column(name = "jenis_kelamin")
-    private GenderType jenis_kelamin;
+    private Character jenisKelamin;
+    @Lob()
+    @Column(name = "img")
+    private byte[] img;    
+    @Transient
+    private String byte64Encode;
 
-    public GenderType getJenis_kelamin() {
-        return jenis_kelamin;
+    public String getByte64Encode() {
+        return byte64Encode;
     }
 
-    public void setJenis_kelamin(GenderType jenis_kelamin) {
-        this.jenis_kelamin = jenis_kelamin;
-    }
-
-    public Date getTanggal_lahir() {
-        return tanggal_lahir;
-    }
-
-    public void setTanggal_lahir(Date tanggal_lahir) {
-        this.tanggal_lahir = tanggal_lahir;
-    }
-    @OneToMany(mappedBy = "mahasiswa")
-    private List<Nilai> daftarNilai = new ArrayList<>();
-
-    public List<Nilai> getDaftarNilai() {
-        return daftarNilai;
-    }
-
-    public void setDaftarNilai(List<Nilai> daftarNilai) {
-        this.daftarNilai = daftarNilai;
+    public void setByte64Encode(String byte64Encode) {
+        this.byte64Encode = byte64Encode;
     }
 
     public Mahasiswa() {
@@ -120,4 +101,53 @@ public class Mahasiswa implements Serializable {
         this.jurusan = jurusan;
     }
 
+    public Date getTanggalLahir() {
+        return tanggalLahir;
+    }
+
+    public void setTanggalLahir(Date tanggalLahir) {
+        this.tanggalLahir = tanggalLahir;
+    }
+
+    public byte[] getImg() {
+        return img;
+    }
+
+    public void setImg(byte[] img) {
+        this.img = img;
+    }
+
+    public Character getJenisKelamin() {
+        return jenisKelamin;
+    }
+
+    public void setJenisKelamin(Character jenisKelamin) {
+        this.jenisKelamin = jenisKelamin;
+    }
+
+    @Override
+    public int hashCode() {
+        int hash = 0;
+        hash += (npm != null ? npm.hashCode() : 0);
+        return hash;
+    }
+
+    @Override
+    public boolean equals(Object object) {
+        // TODO: Warning - this method won't work in the case the id fields are not set
+        if (!(object instanceof Mahasiswa)) {
+            return false;
+        }
+        Mahasiswa other = (Mahasiswa) object;
+        if ((this.npm == null && other.npm != null) || (this.npm != null && !this.npm.equals(other.npm))) {
+            return false;
+        }
+        return true;
+    }
+
+    @Override
+    public String toString() {
+        return "university.com.model.Mahasiswa[ npm=" + npm + " ]";
+    }
+    
 }

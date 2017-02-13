@@ -6,7 +6,7 @@
 package university.com.service;
 
 import java.util.List;
-import university.com.model.MataKuliah;
+import university.com.model.Matakuliah;
 
 /**
  *
@@ -14,11 +14,11 @@ import university.com.model.MataKuliah;
  */
 public interface IMataKuliahSrvc {
     
-    public void save(MataKuliah mataKuliah);
-    public void update(MataKuliah mataKuliah);
-    public void delete(MataKuliah mataKuliah);
-    public List<MataKuliah> getAllMataKuliah();
-    public MataKuliah getSingleMataKuliah(Long id);
-    public List<MataKuliah> getAllMataKuliahs(int start,int max);
-    public List<MataKuliah> getSearch(String search); 
+    public void save(Matakuliah mataKuliah);
+    public void update(Matakuliah mataKuliah);
+    public void delete(Matakuliah mataKuliah);
+    public List<Matakuliah> getAllMataKuliah();
+    public Matakuliah getSingleMataKuliah(Long id);
+    public List<Matakuliah> getAllMataKuliahs(Integer start, Integer max);
+    public List<Matakuliah> getSearch(String search); 
 }

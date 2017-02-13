@@ -49,7 +49,7 @@ public class NilaiSrvcImpl implements INilaiSrvc{
     }
 
     @Override
-    public List<Nilai> getAllNilais(int start, int max) {
+    public List<Nilai> getAllNilais(Integer start, Integer max) {
         return nilaiDao.getAll(start, max);
     }
     

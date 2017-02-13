@@ -6,7 +6,7 @@
         <property name="hibernate.connection.driver_class">org.postgresql.Driver</property>
         <property name="hibernate.connection.url">jdbc:postgresql://localhost:5432/UNIVERSITAS</property>
         <mapping class="university.com.model.Mahasiswa"/>
-        <mapping class="university.com.model.MataKuliah"/>   
+        <mapping class="university.com.model.Matakuliah"/>   
         <mapping class="university.com.model.Dosen"/>   
         <mapping class="university.com.model.Nilai"/>   
 

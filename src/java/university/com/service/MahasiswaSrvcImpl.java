@@ -49,12 +49,17 @@ public class MahasiswaSrvcImpl implements IMahasiswaSrvc{
     }
 
     @Override
-    public List<Mahasiswa> getAllMahasiswas(int start, int max) {
+    public List<Mahasiswa> getAllMahasiswas(Integer start, Integer max) {
         return mahasiswaDAO.getAll(start, max);
     }
 
     @Override
     public List<Mahasiswa> getSearch(String search) {
         return mahasiswaDAO.getSearch(search);
+    }
+
+    @Override
+    public Long count() {
+        return mahasiswaDAO.count();
     }
 }
